@@ -72,10 +72,6 @@ class UvModel(sc.AbstractManipulatorModel):
         if indentifier == "name":
             return self.current_path
 
-    def destroy(self):
-        self.events = None
-        self.stage_event_delegate.unsubscribe()
-
     def _register_submodel_callbacks(self):
         """Register to listen to when any submodel values change."""
         self.uv_enabled.add_value_changed_fn(self._model_changed)
@@ -87,3 +83,7 @@ class UvModel(sc.AbstractManipulatorModel):
 
     def add_model_changed_fn(self, callback):
         self._callbacks.append(callback)
+
+    def destroy(self):
+        self.events = None
+        self.stage_event_delegate.unsubscribe()

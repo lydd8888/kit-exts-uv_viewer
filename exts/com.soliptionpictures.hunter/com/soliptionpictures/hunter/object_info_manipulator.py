@@ -63,7 +63,7 @@ class ObjInfoManipulator(sc.Manipulator):
         height = self.get_height()
         inverse_ratio = 1 / aspect_ratio
 
-        # Get uv_size, by default it is 50 from model
+        # Get uv_size, by default it is 50 from model file
         uv_size = self.model.uv_size.as_float
 
         if not self.model:
@@ -109,7 +109,7 @@ class ObjInfoManipulator(sc.Manipulator):
                 self._build_uv()
                 
                 # Build Uv and save to disk
-                # time.sleep(0.1)
+                time.sleep(0.15)
                 current_mtime = os.path.getmtime(self.file_path)
                 # Compare current modification time with the initial one
                 if current_mtime != initial_mtime:
@@ -120,6 +120,7 @@ class ObjInfoManipulator(sc.Manipulator):
                     # Update the initial_mtime to the current modification time
                     initial_mtime = current_mtime
 
+    # Check if uv png is new
     def is_file_updated(file_path, reference_time):
         file_stat = os.stat(file_path)
         file_modification_time = time.localtime(file_stat.st_mtime)
@@ -223,7 +224,6 @@ class ObjInfoManipulator(sc.Manipulator):
             ctx.set_source_rgb(0.2, 0.2, 0.2)  # Dark gray fill
             ctx.fill()
 
-            
             current_index += count
             
             # for debug only, test for loop counts
@@ -262,7 +262,8 @@ class ObjInfoManipulator(sc.Manipulator):
             with sc.Transform(transform):
                 self._show_uv()
     
-    """Main Function to draw UV"""
+    """Main Function to draw UV directly in Omniverse"""
+    """Depreciate due to performance issue"""
     def _draw_uv_line(self, point_count, points):
         # point_count = 3
         # points = [[0,0,0],[0,0.5,0],[0.5,0.5,0]]
@@ -274,9 +275,6 @@ class ObjInfoManipulator(sc.Manipulator):
 
         # This will create a new list to append the first element to the list and form a closed line
         line_points = points + [points[0]]
-        # for sublist in line_points:
-        #     sublist[-1] = 1.0
-
         # Draw UV
         sc.PolygonMesh(points, colors, [point_count], vertex_indices)
         sc.Curve(
@@ -302,7 +300,6 @@ class ObjInfoManipulator(sc.Manipulator):
             sc.Line([0,0,1], [0, 1, 1], thicknesses=[5.0], color=cl.red)
             sc.Line([0,0,1], [1, 0, 1], thicknesses=[5.0], color=cl.red)
 
-
     def get_aspect_ratio(self):
         """Get the aspect ratio of the viewport.
 
@@ -311,7 +308,6 @@ class ObjInfoManipulator(sc.Manipulator):
         """
         return self._aspect_ratio
     
-
     def get_width(self):
         """Get the width of the viewport.
 
@@ -320,7 +316,6 @@ class ObjInfoManipulator(sc.Manipulator):
         """
         return self._width
     
-
     def get_height(self):
         """Get the height of the viewport.
 
@@ -329,10 +324,10 @@ class ObjInfoManipulator(sc.Manipulator):
         """
         return self._height
     
-
     def on_model_updated(self, item):
         # Regenerate the manipulator
         self.invalidate()
+
 
     """Test Function"""
     def __example_draw_shape(self):
