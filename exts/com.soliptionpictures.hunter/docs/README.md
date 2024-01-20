@@ -8,4 +8,4 @@ I create this entension mainly to check if my UV is right since Omniverse does n
 ## Adding This Extension
 To add a this extension to your Omniverse app:
 1. Go into: Extension Manager -> Gear Icon -> Extension Search Path 
-
+2. Add Link to the path: ../uv_viewer_extension/kit-exts-uv_viewer/exts

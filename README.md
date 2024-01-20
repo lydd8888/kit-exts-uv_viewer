@@ -1,19 +1,19 @@
-# Extension Project Template
+# UV viewer Extension 
+![UV viewer](/exts/com.soliptionpictures.hunter/data/preview.png)
 
-This project was automatically generated.
+# About
 
-- `app` - It is a folder link to the location of your *Omniverse Kit* based app.
-- `exts` - It is a folder where you can add new extensions. It was automatically added to extension search path. (Extension Manager -> Gear Icon -> Extension Search Path).
+This extension can show object's UV in viewport
+This Extension is heavily inspried by Camera Reticle Extension 
+I create this entension mainly to check if my UV is right since Omniverse does not natively support UV check
 
-Open this folder using Visual Studio Code. It will suggest you to install few extensions that will make python experience better.
+# Adding Extensions
 
-Look for "com.soliptionpictures.hunter" extension in extension manager and enable it. Try applying changes to any python files, it will hot-reload and you can observe results immediately.
+To add this extension to your Omniverse app:
 
-Alternatively, you can launch your app from console with this folder added to search path and your extension enabled, e.g.:
-
-```
-> app\omni.code.bat --ext-folder exts --enable company.hello.world
-```
+Clone the extension from: https://github.com/lydd8888/kit-exts-uv_viewer
+Go into: Extension Manager -> Gear Icon -> Setting
+Add Local Link to Extension Search Path:../uv_viewer_extension/kit-exts-uv_viewer/exts
 
 # App Link Setup
 
@@ -40,13 +40,4 @@ You can also just pass a path to create link to:
 ```
 
 
-# Sharing Your Extensions
-
-This folder is ready to be pushed to any git repository. Once pushed direct link to a git repository can be added to *Omniverse Kit* extension search paths.
-
-Link might look like this: `git://github.com/[user]/[your_repo].git?branch=main&dir=exts`
-
-Notice `exts` is repo subfolder with extensions. More information can be found in "Git URL as Extension Search Paths" section of developers manual.
-
-To add a link to your *Omniverse Kit* based app go into: Extension Manager -> Gear Icon -> Extension Search Path
 
