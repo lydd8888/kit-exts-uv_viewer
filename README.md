@@ -1,6 +1,8 @@
 # UV viewer Extension 
 ![UV viewer](/exts/com.soliptionpictures.hunter/data/preview.png)
 
+Demo:https://www.youtube.com/watch?v=deavDepvdlc
+
 # About
 
 This extension can show object's UV in viewport
