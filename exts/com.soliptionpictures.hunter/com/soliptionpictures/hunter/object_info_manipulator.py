@@ -196,24 +196,7 @@ class ObjInfoManipulator(sc.Manipulator):
 
         for count in vertex_counts:
             uv_face = uv_mesh[current_index:current_index+count]
-            # uv_face_vector = np.column_stack((uv_face, np.zeros(uv_face.shape[0])))
             pixel_uv_face = [(uv[0] * width, uv[1] * height) for uv in uv_face]
-            # Turn the numpy arrary to regular list that USD can read           
-            # regular_list = uv_face_vector.tolist()
-
-            #  # You'll need to replace the following line with appropriate calculations
-            # pixel_uv_face = [(int(uv[0] * width), int(uv[1] * height)) for uv in uv_face]
-            
-            # # Draw the filled polygon
-            # light_gray = (150, 150, 150)
-            # dark_gray = (50, 50, 50)
-            # draw.polygon(pixel_uv_face, outline=light_gray, fill=dark_gray)
-            
-            # Main job that draw UV
-            # self._draw_uv_line(count, regular_list)
-
-            # Test Cario
-            # Draw the filled polygon
             ctx.set_source_rgb(0.6, 0.6, 0.6)  # Light gray outline
             ctx.set_fill_rule(cairo.FILL_RULE_EVEN_ODD)  # Filling rule
             ctx.move_to(*pixel_uv_face[0])
@@ -228,7 +211,7 @@ class ObjInfoManipulator(sc.Manipulator):
             
             # for debug only, test for loop counts
             loop_counter += 1
-            if loop_counter >= 90000:
+            if loop_counter >= 1000000:
                 break
 
         # image.save("D:/Amazon_Box_Stable_Diffusion/HoudiniUV/UV_Viewer_Extension/kit-exts-uv_viewer/exts/com.soliptionpictures.hunter/data/output.png")

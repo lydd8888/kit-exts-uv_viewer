@@ -1,6 +1,5 @@
 import omni.ext
 import omni.ui as ui
-# import viewport
 from omni.kit.viewport.utility import get_active_viewport_window
 from .viewport_scene import ViewportSceneInfo
 from .uv_viewer import UvModel
