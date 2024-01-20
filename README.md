@@ -4,16 +4,22 @@
 # About
 
 This extension can show object's UV in viewport
+
 This Extension is heavily inspried by Camera Reticle Extension 
+
 I create this entension mainly to check if my UV is right since Omniverse does not natively support UV check
+
+Since it is fully Python, for complex model, it takes couple seconds to calculate the UV
 
 # Adding Extensions
 
 To add this extension to your Omniverse app:
 
 Clone the extension from: https://github.com/lydd8888/kit-exts-uv_viewer
+
 Go into: Extension Manager -> Gear Icon -> Setting
-Add Local Link to Extension Search Path:../uv_viewer_extension/kit-exts-uv_viewer/exts
+
+Add Local Link to Extension Search Path:```../uv_viewer_extension/kit-exts-uv_viewer/exts```
 
 # App Link Setup
 
